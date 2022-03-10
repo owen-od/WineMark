@@ -1,0 +1,39 @@
+<div class="container">
+  <div class ="box">
+    <form action="/dashboard/addplacemark" method="POST">
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <label class="label">Placemark Name</label> <input class="input" type="text" placeholder="Enter place name" name="name">
+        </div>
+        <div class="field">
+          <label class="label">Latitude</label> <input class="input" type="number" placeholder="Enter latitude" step="0.0000001" max="90" min="-90" name="latitude">
+        </div>
+        <div class="field">
+        <label class="label">Longitude</label> <input class="input" type="number" placeholder="Enter Longitude" step="0.0000001" max="180" min="-180" name="longitude">
+      </div>
+        </div>
+      </div>
+      <div class="field">
+      <label class="label">Region</label>
+      <div class="control">
+        <div class="select">
+          <select name="region">
+            {{#each regions}}
+            <option>{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control">
+        <label class="label">Description</label><textarea class="textarea" placeholder="Enter description" name="description"></textarea>
+      </div>
+    </div>
+      <div class="field">
+        <button class="button is-link">Add Placemark</button>
+      </div>
+    </form>
+  </div>
+</div>

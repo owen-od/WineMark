@@ -1,0 +1,68 @@
+{
+  "placemarks": [
+    {
+      "name": "Château La Tour Carnet",
+      "latitude": "45.14731",
+      "longitude": "-0.79383",
+      "_id": "a32893b7-6c00-4909-922a-fe0b5b046d83",
+      "region": "Bordeaux",
+      "description": "The history of La Tour Carnet is inextricably linked with that of France. The name of the property, for instance, comes from the name of the estate’s horseman who unfailingly aided his master to fight off French royalty at the end of the One Hundred Years War. Then, after having played a major role in the revolution of the Médoc vineyard, La Tour Carnet was duly recognised for the quality of its wine, when the estate was ranked in the 1855 classification of Grands Crus. The diversity of its terroir on the one hand, and the constant search for perfection on the other, have made this Haut-Médoc an outstanding growth."
+    },
+    {
+      "name": "Domaine Romanée Conti",
+      "latitude": "47.162226",
+      "longitude": "4.95541",
+      "region": "Burgundy",
+      "_id": "67b6ff88-dc49-4015-98b0-08099ebb4c8c",
+      "description": "Domaine de la Romanée-Conti, often abbreviated to DRC, is an estate in Burgundy, France that produces white and red wine. It is widely considered among the world's greatest wine producers, and DRC bottles are among the world's most expensive. It takes its name from the domaine's most famous vineyard, Romanée-Conti."
+    },
+    {
+      "name": "Château De Pommard",
+      "latitude": "47.00781",
+      "longitude": "4.79831",
+      "region": "Burgundy",
+      "_id": "dbf0d32f-96f7-4e50-88d5-74b09beecf5b",
+      "description": "Château de Pommard is a winery in Pommard, Burgundy, France. Established in 1726, the property is known for its two Châteaux, gardens, and its 20 hectare walled vineyard, Clos Marey-Monge. The Châteaux, the vineyard and the winemaking facilities are operated and owned by Michael Baum, who purchased the estate in 2014. The winery produces \"Clos\" wines - Pinot Noir produced from the fruit of Clos Marey-Monge and \"Family\" wines - Grand Cru, Premier Cru, Village and Bourgogne wines from Chardonnay and Pinot Noir appellations across the Côte de Nuits and the Côte de Beaune. In 2016, the estate tested biodynamic methods on 2.5 hectares of vines, and stated the intention of being entirely biodynamic for the 2019 vintage."
+    },
+    {
+      "name": "Domaine Weinbach",
+      "latitude": "48.13606",
+      "longitude": "7.27305",
+      "region": "Alsace",
+      "_id": "be0da9e8-8f37-4f2e-9955-f520caf4339c",
+      "description": "At the foot of the majestic Schlossberg hill surrounded by vines and roses, lies Domaine Weinbach. Named after the little stream which runs through the property, and planted with vines since the 9th century, it was established as a winery in 1612 by Capuchin friars. Employing both organic and biodynamic practices, Domaine Weinbach produces an exquisite range of wines: estate varietal wines including Riesling, Muscat, Pinot Gris, Sylvaner and Pinot Blanc, single vineyard wines that express the diversity of the terroir, and luscious yet balanced vendanges tardives and selections de grains nobles wines."
+    },
+    {
+      "name": "Château La Nerthe",
+      "latitude": "44.04972",
+      "longitude": "4.85781",
+      "region": "Cotes du Rhône",
+      "_id": "65ada20c-4d34-4791-97d8-d8e4cbe51cba",
+      "description": "Château La Nerthe produces red and white Châteauneuf du Pape wines with great cellaring potential. The Clos de Beauvenir and Cuvée Les Cadettes are the château’s flagship wines. They represent the marriage of ancestral know-how with mastery of cutting edge techniques to release the expression of the terroir and the style of La Nerthe : elegance, complexity and freshness. The vineyard, cultivated using organic methods for 20 years, has a variety of terroirs (including 30 hectares on the plateau of La Crau) planted mainly to Grenache, Syrah and Mourvedre to endow the wines of Château La Nerthe with tannins of great finesse and great length. "
+    },
+    {
+      "name": "Champagne Pommery",
+      "latitude": "49.24303",
+      "longitude": "4.05196",
+      "region": "Champagne",
+      "_id": "12f4fd48-6cee-434a-9274-664304d0fa58",
+      "description": "Champagne Pommery is a Champagne house located in Reims. The house was founded as Pommery & Greno in 1858 by Alexandre Louis Pommery and Narcisse Greno with the primary business being wool trading. Under the guidance of Alexandre's widow, Louise Pommery, the firm was dedicated to Champagne production and soon became one of the region's largest Champagne brands. Champagne Pommery was the first house to commercialize a brut Champagne in 1874."
+    },
+    {
+      "name": "Château du Moulin-à-Vent",
+      "latitude": "46.20507",
+      "longitude": "4.72505",
+      "region": "Beaujolais",
+      "description": "Located in the southernmost tip of the Burgundy region, Moulin-à-Vent was one of the first appellations awarded AOC status in 1936. Château du Moulin-à-Vent, named for the 300-year-old stone windmill atop the hill of Les Thorins, dates back to 1732, when it was called Château des Thorins. Today, the estate encompasses 37 hectares (91.4 acres) of the appellation’s finest climats — Les Vérillats, Le Champ de Cour, La Rochelle — planted to Gamay Noir averaging 40 years in age. The underlying granite soil is rich in iron oxide, copper and manganese, which may account for the wines’ aging potential.",
+      "_id": "92d47a0a-24e8-4d77-8ba0-32584d933281"
+    },
+    {
+      "name": "Château de Tracy",
+      "latitude": "47.32132",
+      "longitude": "2.89166",
+      "region": "Loire Valley",
+      "description": "Château de Tracy has been run by the same family since the 14th century. Records of the property go back to 1396 when Les Champs de Crix vineyard was purchased. Nowadays, this particular vineyard is still planted with Sauvignon and is still a key part of the Domaine. The Domaine consists of 33 hectares on the slopes around the Château itself (terroir of flint) and those of Vilmoy, a few kilometres away from Pouilly-sur-Loire (Kimmeridgian limestone terroir). To the north of the Pouilly Fume area, on the hillsides which overlook the Loire, the Château de Tracy vineyard extends from Tracy hill to the \"Champs de Cris\" plateau.",
+      "_id": "943687d0-e82e-42b2-a188-d4602fa810ef"
+    }
+  ]
+}

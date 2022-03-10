@@ -1,0 +1,17 @@
+#main-hero {
+    background-image: url(images/vineyard-2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-color: #cccccc;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+}
+
+#grape-list{
+    list-style-type: '🍇';
+    font-size: 120%;
+}
+
+#main-hero-title {
+    position: relative;
+    bottom: 21rem;
+}
