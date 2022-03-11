@@ -2,6 +2,9 @@
 .idea
 .vscode
 
+# .env file
+.env
+
 # Logs
 logs
 *.log
