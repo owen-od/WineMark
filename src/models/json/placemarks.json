@@ -2,8 +2,8 @@
   "placemarks": [
     {
       "name": "Château La Tour Carnet",
-      "latitude": "45.14731",
-      "longitude": "-0.79383",
+      "latitude": 45.14731,
+      "longitude": -0.79383,
       "_id": "a32893b7-6c00-4909-922a-fe0b5b046d83",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
       "region": "Bordeaux",
@@ -11,8 +11,8 @@
     },
     {
       "name": "Domaine Romanée Conti",
-      "latitude": "47.162226",
-      "longitude": "4.95541",
+      "latitude": 47.162226,
+      "longitude": 4.95541,
       "region": "Burgundy",
       "_id": "67b6ff88-dc49-4015-98b0-08099ebb4c8c",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
@@ -20,8 +20,8 @@
     },
     {
       "name": "Château De Pommard",
-      "latitude": "47.00781",
-      "longitude": "4.79831",
+      "latitude": 47.00781,
+      "longitude": 4.79831,
       "region": "Burgundy",
       "_id": "dbf0d32f-96f7-4e50-88d5-74b09beecf5b",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
@@ -29,8 +29,8 @@
     },
     {
       "name": "Domaine Weinbach",
-      "latitude": "48.13606",
-      "longitude": "7.27305",
+      "latitude": 48.13606,
+      "longitude": 7.27305,
       "region": "Alsace",
       "_id": "be0da9e8-8f37-4f2e-9955-f520caf4339c",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
@@ -38,8 +38,8 @@
     },
     {
       "name": "Château La Nerthe",
-      "latitude": "44.04972",
-      "longitude": "4.85781",
+      "latitude": 44.04972,
+      "longitude": 4.85781,
       "region": "Cotes du Rhône",
       "_id": "65ada20c-4d34-4791-97d8-d8e4cbe51cba",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
@@ -47,8 +47,8 @@
     },
     {
       "name": "Champagne Pommery",
-      "latitude": "49.24303",
-      "longitude": "4.05196",
+      "latitude": 49.24303,
+      "longitude": 4.05196,
       "region": "Champagne",
       "_id": "12f4fd48-6cee-434a-9274-664304d0fa58",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
@@ -56,8 +56,8 @@
     },
     {
       "name": "Château du Moulin-à-Vent",
-      "latitude": "46.20507",
-      "longitude": "4.72505",
+      "latitude": 46.20507,
+      "longitude": 4.72505,
       "region": "Beaujolais",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
       "description": "Located in the southernmost tip of the Burgundy region, Moulin-à-Vent was one of the first appellations awarded AOC status in 1936. Château du Moulin-à-Vent, named for the 300-year-old stone windmill atop the hill of Les Thorins, dates back to 1732, when it was called Château des Thorins. Today, the estate encompasses 37 hectares (91.4 acres) of the appellation’s finest climats — Les Vérillats, Le Champ de Cour, La Rochelle — planted to Gamay Noir averaging 40 years in age. The underlying granite soil is rich in iron oxide, copper and manganese, which may account for the wines’ aging potential.",
@@ -65,8 +65,8 @@
     },
     {
       "name": "Château de Tracy",
-      "latitude": "47.32132",
-      "longitude": "2.89166",
+      "latitude": 47.32132,
+      "longitude": 2.89166,
       "region": "Loire Valley",
       "userid": "6c7648ad-91b9-4cc9-b60b-59d5d53510bd",
       "description": "Château de Tracy has been run by the same family since the 14th century. Records of the property go back to 1396 when Les Champs de Crix vineyard was purchased. Nowadays, this particular vineyard is still planted with Sauvignon and is still a key part of the Domaine. The Domaine consists of 33 hectares on the slopes around the Château itself (terroir of flint) and those of Vilmoy, a few kilometres away from Pouilly-sur-Loire (Kimmeridgian limestone terroir). To the north of the Pouilly Fume area, on the hillsides which overlook the Loire, the Château de Tracy vineyard extends from Tracy hill to the \"Champs de Cris\" plateau.",
