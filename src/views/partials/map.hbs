@@ -16,7 +16,7 @@
     {{/each}}
 
   for (let i = 0; i < locations.length; i++) {
-    let popupTitle = `<a href = "placemark/${locations[i][3]}">${locations[i][0]}</a>`;
+    let popupTitle = `<a href = "/placemark/${locations[i][3]}">${locations[i][0]}</a>`;
     let marker = new L.marker([locations[i][1],locations[i][2]])
       .bindPopup(popupTitle)
       .addTo(mymap);

@@ -4,6 +4,7 @@ import Inert from "@hapi/inert";
 import Handlebars from "handlebars";
 import Cookie from "@hapi/cookie";
 import path from "path";
+import Joi from "joi";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
@@ -27,6 +28,7 @@ async function init() {
   await server.register(Vision);
   await server.register(Inert);
   await server.register(Cookie);
+  server.validator(Joi);
   server.auth.strategy("session", "cookie", {
     cookie: {
       name: process.env.COOKIE_NAME,
