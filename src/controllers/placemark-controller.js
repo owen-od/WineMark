@@ -13,4 +13,12 @@ export const placemarkController = {
       return h.view("placemark-view", viewData);
     },
   },
+
+  deletePlacemark: {
+    handler: async function(request, h) {
+      const placemark = await db.placemarkStore.getPlacemarkById(request.params.id)
+      await db.placemarkStore.deletePlacemarkById(placemark._id);
+      return h.redirect("/dashboard");
+    },
+  },
 };
