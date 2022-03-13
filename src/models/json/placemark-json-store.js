@@ -28,6 +28,11 @@ export const placemarkJsonStore = {
     return place;
   },
 
+  async getPlacemarksByRegion(region) {
+    const placemarks = db.data.placemarks.filter((placemark) => placemark.region === region)
+    return placemarks;
+  },
+
   async getUserPlacemarks(userid) {
     await db.read();
     return db.data.placemarks.filter((placemark) => placemark.userid === userid);

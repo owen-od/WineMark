@@ -27,6 +27,11 @@ export const placemarkMongoStore = {
       const placemark = await Placemark.find({ userid: id }).lean();
       return placemark;
     },
+
+    async getPlacemarksByRegion(region) {
+      const placemarks = await Placemark.find({ region: region }).lean();
+      return placemarks;
+    },
   
     async deletePlacemarkById(id) {
       try {

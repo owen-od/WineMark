@@ -21,6 +21,10 @@ export const placemarkMemStore = {
     return place;
   },
 
+  async getPlacemarksByRegion(region) {
+    return placemarks.filter((placemark) => placemark.region === region);
+  },
+
   async deletePlacemarkById(id) {
     const index = placemarks.findIndex((placemark) => placemark._id === id);
     if (index !== -1) placemarks.splice(index, 1);
