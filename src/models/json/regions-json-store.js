@@ -13,7 +13,30 @@ export const regionsJsonStore = {
 
   async getOneRegion(name) {
     await db.read();
-    const returnedRegion = db.data.regions.find((region) => region.name === name);
+    let returnedRegion = db.data.regions.find((region) => region.name === name);
+    if (!returnedRegion) {
+      returnedRegion = null;
+    }
     return returnedRegion;
+  },
+
+  async addRegion(region) {
+    await db.read();
+    region._id = v4();
+    db.data.regions.push(region);
+    await db.write();
+    return region;
+  },
+
+  async deleteOneRegion(name) {
+    await db.read();
+    const index = db.data.regions.findIndex((region) => region.name === name);
+    if (index !== -1) db.data.regions.splice(index, 1);
+    await db.write();
+  },
+
+  async deleteAllRegions() {
+    db.data.regions = [];
+    await db.write();
   },
 };

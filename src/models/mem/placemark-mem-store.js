@@ -14,12 +14,16 @@ export const placemarkMemStore = {
   },
 
   async getPlacemarkById(id) {
-    return placemarks.find((placemark) => placemark._id === id);
+    let place = placemarks.find((placemark) => placemark._id === id);
+    if (!place) {
+      place = null;
+    }
+    return place;
   },
 
   async deletePlacemarkById(id) {
     const index = placemarks.findIndex((placemark) => placemark._id === id);
-    placemarks.splice(index, 1);
+    if (index !== -1) placemarks.splice(index, 1);
   },
 
   async deleteAllPlacemarks() {
