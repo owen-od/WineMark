@@ -6,7 +6,7 @@ import { assertSubset } from "./test-utils.js";
 suite("Placemark model tests", () => {
 
   setup(async () => {
-    db.init("json");
+    db.init("mongo");
     await db.placemarkStore.deleteAllPlacemarks();
     for (let i = 0; i < testPlacemarks.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
@@ -16,7 +16,7 @@ suite("Placemark model tests", () => {
 
   test("create a placemark", async () => {
     const placemark = await db.placemarkStore.addPlacemark(vineyard);
-    assert.equal(vineyard, placemark);
+    assertSubset(vineyard, placemark);
     assert.isDefined(placemark._id);
     });
 

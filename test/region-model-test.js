@@ -6,7 +6,7 @@ import { assertSubset } from "./test-utils.js";
 suite("Region Model tests", () => {
 
     setup(async () => {
-      db.init("json");
+      db.init("mongo");
       await db.regionsStore.deleteAllRegions();
       for (let i = 0; i < testRegions.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
@@ -27,7 +27,7 @@ suite("Region Model tests", () => {
 
     test("add a region", async () => {
       const region = await db.regionsStore.addRegion(burgundy);
-      assert.equal(burgundy, region);
+      assertSubset(burgundy, region);
       assert.isDefined(region._id);
     });
 
