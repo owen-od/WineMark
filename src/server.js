@@ -9,6 +9,7 @@ import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
+import { apiRoutes } from "./api-routes.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -52,6 +53,7 @@ async function init() {
   });
   db.init("mongo");
   server.route(webRoutes);
+  server.route(apiRoutes);
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }

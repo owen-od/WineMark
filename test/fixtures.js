@@ -101,3 +101,5 @@ export const testRegions = [
     "grapes": ["Chenin blanc", "Sauvignon blanc", "Cabernet franc", "Melon de Bourgogne", "Gamay", "Pinot noir"]
   }
 ];
+
+export const serviceUrl = "http://localhost:3000";
