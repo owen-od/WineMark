@@ -33,7 +33,7 @@ suite("Region Model tests", () => {
 
     test("delete all regions", async () => {
       let returnedRegions = await db.regionsStore.getAllRegions();
-      assert.equal(returnedRegions.length, 7);
+      assert.equal(returnedRegions.length, 6);
       await db.regionsStore.deleteAllRegions();
       returnedRegions = await db.regionsStore.getAllRegions();
       assert.equal(returnedRegions.length, 0);

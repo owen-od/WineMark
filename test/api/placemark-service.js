@@ -49,4 +49,29 @@ export const placemarkService = {
     const res = await axios.get(`${this.placemarkUrl}/api/placemarks/${id}`);
     return res.data;
   },
+
+  async createRegion(region) {
+    const res = await axios.post(`${this.placemarkUrl}/api/regions`, region);
+    return res.data;
+  },
+
+  async deleteAllRegions() {
+    const response = await axios.delete(`${this.placemarkUrl}/api/regions`);
+    return response.data;
+  },
+
+  async deleteRegion(name) {
+    const response = await axios.delete(`${this.placemarkUrl}/api/regions/${name}`);
+    return response;
+  },
+
+  async getAllRegions() {
+    const res = await axios.get(`${this.placemarkUrl}/api/regions`);
+    return res.data;
+  },
+
+  async getRegion(name) {
+    const res = await axios.get(`${this.placemarkUrl}/api/regions/${name}`);
+    return res.data;
+  },
 }

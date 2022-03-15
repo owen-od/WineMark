@@ -76,11 +76,6 @@ export const testRegions = [
     "grapes": ["Cabernet Sauvignon", "Merlot", "Cabernet Franc", "Petit Verdot", "Malbec", "Carménère", "Sauvignon Blanc", "Sémillon"]
   },
   {
-    "name": "Burgundy",
-    "vintages": [2005, 2009, 2012, 2014, 2015, 2010, 2011, 1990, 1995, 1999],
-    "grapes": ["Pinot Noir", "Gamay", "Chardonnay", "Aligoté"]
-  },
-  {
     "name": "Beaujolais",
     "vintages": [2021, 2020, 2019, 2018, 2017, 2015, 2011, 2009],
     "grapes": ["Gamay", "Pinot Noir", "Chardonnay", "Aligoté", "Pinot gris"]
