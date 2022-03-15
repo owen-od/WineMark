@@ -29,6 +29,22 @@ export const regionApi = {
     },
   },
 
+  findPlacemarks: {
+    auth: false,
+    async handler(request) {
+      try {
+        const region = await db.regionsStore.getOneRegion(request.params.name);
+        if (!region) {
+          return Boom.notFound("No Region with this name");
+        }
+        const placemarks = await db.placemarkStore.getPlacemarksByRegion(region.name);
+        return placemarks;
+      } catch (err) {
+        return Boom.serverUnavailable("No Region with this name");
+      }
+    },
+  },
+
   create: {
     auth: false,
     handler: async function (request, h) {

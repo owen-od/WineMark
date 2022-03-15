@@ -16,6 +16,7 @@ export const apiRoutes = [
 
   { method: "GET", path: "/api/regions", config: regionApi.find },
   { method: "GET", path: "/api/regions/{name}", config: regionApi.findOne },
+  { method: "GET", path: "/api/regions/{name}/placemarks", config: regionApi.findPlacemarks },
   { method: "POST", path: "/api/regions", config: regionApi.create },
   { method: "DELETE", path: "/api/regions", config: regionApi.deleteAll },
   { method: "DELETE", path: "/api/regions/{name}", config: regionApi.deleteOne },

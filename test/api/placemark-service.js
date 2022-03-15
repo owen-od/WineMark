@@ -74,4 +74,9 @@ export const placemarkService = {
     const res = await axios.get(`${this.placemarkUrl}/api/regions/${name}`);
     return res.data;
   },
+
+  async getRegionPlacemarks(name) {
+    const res = await axios.get(`${this.placemarkUrl}/api/regions/${name}/placemarks`);
+    return res.data;
+  },
 }

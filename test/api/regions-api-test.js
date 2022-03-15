@@ -37,6 +37,12 @@ suite("Region API tests", () => {
     }
   });
 
+  test("find region placemarks", async () => {
+    const region = await placemarkService.createRegion(burgundy);
+    const regionPlacemarks = await placemarkService.getRegionPlacemarks(region.name);
+    assert.equal(regionPlacemarks.length, 2);
+  });
+
   test("Delete a region", async () => {
     const region = await placemarkService.createRegion(burgundy);
     await placemarkService.deleteRegion(region.name);
