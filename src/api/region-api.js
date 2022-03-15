@@ -1,5 +1,7 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
+import { RegionSpec, RegionSpecPlus, RegionNameSpec, RegionArraySpec, PlacemarkArraySpec } from "../models/joi-schemas.js";
+import { validationError } from "./logger.js";
 
 export const regionApi = {
   find: {
@@ -12,6 +14,10 @@ export const regionApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    response: { schema: RegionArraySpec, failAction: validationError },
+    description: "Get all regionApi",
+    notes: "Returns all regions",
   },
   
   findOne: {
@@ -27,6 +33,11 @@ export const regionApi = {
         return Boom.serverUnavailable("No Region with this name");
       }
     },
+    tags: ["api"],
+    description: "Find a region",
+    notes: "Returns a region",
+    validate: { params: { name: RegionNameSpec }, failAction: validationError },
+    response: { schema: RegionSpecPlus, failAction: validationError }
   },
 
   findPlacemarks: {
@@ -43,6 +54,11 @@ export const regionApi = {
         return Boom.serverUnavailable("No Region with this name");
       }
     },
+    tags: ["api"],
+    description: "Find all region's placemarks",
+    notes: "Returns regions placemarks",
+    validate: { params: { name: RegionNameSpec }, failAction: validationError },
+    response: { schema: PlacemarkArraySpec, failAction: validationError }
   },
 
   create: {
@@ -59,6 +75,12 @@ export const regionApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a region",
+    notes: "Returns the newly created region",
+    validate: { payload: RegionSpec, failAction: validationError },
+    response: { schema: RegionSpecPlus, failAction: validationError }
+
   },
 
   deleteAll: {
@@ -71,6 +93,8 @@ export const regionApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all RegionApi",
   },
 
   deleteOne: {
@@ -87,5 +111,8 @@ export const regionApi = {
         return Boom.serverUnavailable("No Region with this name");
       }
     },
+    tags: ["api"],
+    description: "Delete a region",
+    validate: { params: { name: RegionNameSpec }, failAction: validationError },
   },
 };

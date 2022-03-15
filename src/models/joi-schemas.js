@@ -31,9 +31,26 @@ export const PlacemarkSpec = Joi.object()
     userid: IdSpec,
   }).label("Placemark");
 
-  export const PlacemarkSpecPlus = PlacemarkSpec.keys({
+export const PlacemarkSpecPlus = PlacemarkSpec.keys({
     _id: IdSpec,
     __v: Joi.number(),
   }).label("PlacemarkPlus");
 
-  export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
+export const PlacemarkArraySpec = Joi.array().items(PlacemarkSpecPlus).label("PlacemarkArray");
+
+export const RegionNameSpec = Joi.string().description("a valid region");
+
+export const RegionSpec = Joi.object()
+  .keys({
+    name: Joi.string().required().example("Burgundy"),
+    vintages: Joi.array().items(Joi.number()).required().example([2005, 2009, 2012, 2014, 2015, 2010, 2011, 1990, 1995, 1999]),
+    grapes: Joi.array().items(Joi.string()).required().example(["Pinot Noir", "Gamay", "Chardonnay", "Aligoté"]),
+  }).label("Region");
+
+export const RegionSpecPlus = RegionSpec.keys({
+    _id: IdSpec,
+    __v: Joi.number(),
+  }).label("RegionPlus");
+
+  export const RegionArraySpec = Joi.array().items(RegionSpecPlus).label("RegionArray");
+
