@@ -6,6 +6,7 @@ import Cookie from "@hapi/cookie";
 import path from "path";
 import Joi from "joi";
 import dotenv from "dotenv";
+import HapiSwagger from "hapi-swagger";
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
@@ -20,14 +21,26 @@ if (result.error) {
   console.log(result.error.message);
   process.exit(1);
 }
+const swaggerOptions = {
+  info: {
+    title: "WineMark API",
+    version: "0.1",
+  },
+};
 
 async function init() {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
   });
-  await server.register(Vision);
-  await server.register(Inert);
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions,
+    },
+  ]);
   await server.register(Cookie);
   server.validator(Joi);
   server.auth.strategy("session", "cookie", {
