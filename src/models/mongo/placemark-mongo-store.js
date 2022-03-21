@@ -23,9 +23,21 @@ export const placemarkMongoStore = {
       return this.getPlacemarkById(placemarkObj._id);
     },
   
-    async getUserPlacemarks(id) {
-      const placemark = await Placemark.find({ userid: id }).lean();
+    async getUserPlacemarks(userid) {
+      const placemark = await Placemark.find({ userid: userid }).lean();
       return placemark;
+    },
+
+    async deleteUserPlacemarks(userid) {
+      const userPlacemarks = await Placemark.find({ userid: userid }).lean(); 
+      for (let i = 0; i < userPlacemarks.length; i += 1) {
+        try {
+          // eslint-disable-next-line no-await-in-loop
+          await Placemark.deleteOne({ _id: userPlacemarks[i]._id });
+        } catch (error) {
+          console.log("bad id");
+        }
+      }
     },
 
     async getPlacemarksByRegion(region) {

@@ -24,4 +24,12 @@ export const adminController = {
       return h.view("admin-dashboard-view", viewData);
     },
   },
+
+  deleteUser: {
+    handler: async function (request, h) {
+      await db.userStore.deleteUserById(request.params.id);
+      await db.placemarkStore.deleteUserPlacemarks(request.params.id);
+      return h.redirect("/admin");
+    }
+  }
 };

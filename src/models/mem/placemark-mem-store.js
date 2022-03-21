@@ -25,6 +25,19 @@ export const placemarkMemStore = {
     return placemarks.filter((placemark) => placemark.region === region);
   },
 
+  async getUserPlacemarks(userid) {
+    return placemarks.filter((placemark) => placemark.userid === userid);
+  },
+
+  async deleteUserPlacemarks(userid) {
+    const userPlacemarks = placemarks.filter((placemark) => placemark.userid === userid);
+    for (let i = 0; i < userPlacemarks.length; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      const index = placemarks.findIndex((placemark) => placemark._id === userPlacemarks[i]._id);
+      if (index !== -1) placemarks.splice(index, 1);
+    }
+  },
+
   async deletePlacemarkById(id) {
     const index = placemarks.findIndex((placemark) => placemark._id === id);
     if (index !== -1) placemarks.splice(index, 1);

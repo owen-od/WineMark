@@ -38,6 +38,17 @@ export const placemarkJsonStore = {
     return db.data.placemarks.filter((placemark) => placemark.userid === userid);
   },
 
+  async deleteUserPlacemarks(userid) {
+    await db.read();
+    const userPlacemarks = db.data.placemarks.filter((placemark) => placemark.userid === userid);
+    for (let i = 0; i < userPlacemarks.length; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      const index = db.data.placemarks.findIndex((placemark) => placemark._id === userPlacemarks[i]._id);
+      if (index !== -1) db.data.placemarks.splice(index, 1);
+    }
+    await db.write();
+  },
+
   async deletePlacemarkById(id) {
     await db.read();
     const index = db.data.placemarks.findIndex((placemark) => placemark._id === id);

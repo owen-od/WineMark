@@ -20,7 +20,7 @@ export const webRoutes = [
   { method: "POST", path: "/dashboard/addplacemark", config: dashboardController.addPlacemark },
 
   { method: "GET", path: "/admin", config: adminController.index },
-  /*{ method: "GET", path: "/admin/deleteuser/{id}", config: adminController.deleteUser },*/
+  { method: "GET", path: "/admin/deleteuser/{id}", config: adminController.deleteUser },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 ];
