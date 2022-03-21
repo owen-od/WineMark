@@ -1,0 +1,65 @@
+{{> admin-menu }}
+
+<section class="box">
+  <h3 class="title is-3 has-text-centered" id="map-heading">French Edition</h3>
+  {{> admin-dashboard-map}}
+</section>
+<section class="box">
+  <h3 class="title is-3 has-text-centered">Statistics</h3>
+  <div class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Total Placemarks</p>
+      <p class="title">{{numberPlacemarks}}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Total Regions</p>
+      <p class="title">{{numberRegions}}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Total Users</p>
+      <p class="title">{{numberUsers}}</p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Highest User Placemarks</p>
+      <p class="title">{{mostUserPlacemarks}}</p>
+    </div>
+  </div>
+</div>
+</section>
+<section class="box">
+  <h3 class="title is-3 has-text-centered">Current Users</h3>
+  <table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+      <tr>
+        <td>
+          {{firstName}}
+        </td>
+        <td>
+          {{lastName}}
+        </td>
+        <td>
+          {{email}}
+        </td>
+        <td>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+</section>

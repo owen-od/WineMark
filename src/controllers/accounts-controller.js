@@ -49,7 +49,10 @@ export const accountsController = {
       const user = await db.userStore.getUserByEmail(email);
       if (!user || user.password !== password) {
         return h.redirect("/");
-      }
+      } if (user.email === "admin@winemark.com" && user.password === "verysecret") {
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/admin");
+      } 
       request.cookieAuth.set({ id: user._id });
       return h.redirect("/dashboard");
     },
