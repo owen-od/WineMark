@@ -52,5 +52,13 @@ export const RegionSpecPlus = RegionSpec.keys({
     __v: Joi.number(),
   }).label("RegionPlus");
 
-  export const RegionArraySpec = Joi.array().items(RegionSpecPlus).label("RegionArray");
+export const RegionArraySpec = Joi.array().items(RegionSpecPlus).label("RegionArray");
+
+export const JwtAuth = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+  }).label("JwtAuth");
+
+
 

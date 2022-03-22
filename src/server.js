@@ -7,10 +7,12 @@ import path from "path";
 import Joi from "joi";
 import dotenv from "dotenv";
 import HapiSwagger from "hapi-swagger";
+import jwt from "hapi-auth-jwt2";
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
 import { apiRoutes } from "./api-routes.js";
+import { validate } from "./api/jwt-utils.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -21,11 +23,20 @@ if (result.error) {
   console.log(result.error.message);
   process.exit(1);
 }
+
 const swaggerOptions = {
   info: {
     title: "WineMark API",
     version: "0.1",
   },
+  securityDefinitions: {
+    jwt: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header"
+    }
+  },
+  security: [{ jwt: [] }]
 };
 
 async function init() {
@@ -42,6 +53,7 @@ async function init() {
     },
   ]);
   await server.register(Cookie);
+  await server.register(jwt);
   server.validator(Joi);
   server.auth.strategy("session", "cookie", {
     cookie: {
@@ -51,6 +63,11 @@ async function init() {
     },
     redirectTo: "/",
     validateFunc: accountsController.validate,
+  });
+  server.auth.strategy("jwt", "jwt", {
+    key: process.env.cookie_password,
+    validate: validate,
+    verifyOptions: { algorithms: ["HS256"] }
   });
   server.auth.default("session");
   server.views({

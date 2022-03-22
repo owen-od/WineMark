@@ -5,7 +5,9 @@ import { validationError } from "./logger.js";
 
 export const regionApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const regions = await db.regionsStore.getAllRegions();
@@ -21,7 +23,9 @@ export const regionApi = {
   },
   
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const region = await db.regionsStore.getOneRegion(request.params.name);
@@ -41,7 +45,9 @@ export const regionApi = {
   },
 
   findPlacemarks: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) {
       try {
         const region = await db.regionsStore.getOneRegion(request.params.name);
@@ -62,7 +68,9 @@ export const regionApi = {
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const region = request.payload;
@@ -84,7 +92,9 @@ export const regionApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         await db.regionsStore.deleteAllRegions();
@@ -98,7 +108,9 @@ export const regionApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const region = await db.regionsStore.getOneRegion(request.params.name);

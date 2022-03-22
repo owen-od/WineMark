@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { burgundy, testRegions, testPlacemarks, maggie } from "../fixtures.js";
+import { burgundy, testRegions, testPlacemarks, maggie, maggieCredentials } from "../fixtures.js";
 
 const regions = new Array(testRegions.length);
 
@@ -10,9 +10,14 @@ suite("Region API tests", () => {
   let user = null;
 
   setup(async () => {
+    placemarkService.clearAuth();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     await placemarkService.deleteAllRegions();
     await placemarkService.deleteAllPlacemarks();
+    await placemarkService.deleteAllUsers();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     for (let i = 0; i < testRegions.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       regions[i] = await placemarkService.createRegion(testRegions[i]);

@@ -1,16 +1,20 @@
 import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
-import { maggie, vineyard, testPlacemarks } from "../fixtures.js";
+import { maggie, maggieCredentials, vineyard, testPlacemarks } from "../fixtures.js";
 
 suite("Placemark API tests", () => {
 
   let user = null;
 
   setup(async () => {
+    placemarkService.clearAuth();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     await placemarkService.deleteAllPlacemarks();
     await placemarkService.deleteAllUsers();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     vineyard.userid = user._id;
   });
 
