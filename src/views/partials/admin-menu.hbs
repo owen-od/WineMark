@@ -6,10 +6,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a id="dashboard" class="button is-primary" href="/admin"> Admin </a>
-          <a id="logout" class="button is-danger" href="/logout"> Logout </a>
+          <a id="admin" class="button" href="/admin"> Admin </a>
+          <a id="logout" class="button" href="/logout"> Logout </a>
         </div>
       </div>
     </div>
   </div>
 </nav>
+
+<script>
+  document.getElementById("{{active}}").classList.add("is-link");
+</script>

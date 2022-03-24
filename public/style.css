@@ -1,3 +1,35 @@
+html {
+    background: F9F9F9;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 80%, rgba(88,24,31,.3) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#add-placemark-heading{
+    color: purple;
+    text-decoration: underline;
+    font-family: 'Poiret One', cursive;
+}
+
+#admin-map-heading{
+    color: blue;
+    font-family: 'Poiret One', cursive;
+    background: linear-gradient(90deg, #002395, #FFFFFF, #ED2939);
+    margin-bottom: 1rem;
+}
+
+#dashboard-map-heading{
+    color: blue;
+    font-family: 'Poiret One', cursive;
+    background: linear-gradient(90deg, #002395, #FFFFFF, #ED2939);
+    margin-bottom: 1rem;
+}
+
+#grape-list{
+    list-style-type: '🍇';
+    font-size: 120%;
+}
+
 #main-hero {
     background-image: url(images/vineyard-2.jpg);
     background-position: center;
@@ -6,12 +38,46 @@
     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
 }
 
-#grape-list{
-    list-style-type: '🍇';
-    font-size: 120%;
-}
-
 #main-hero-title {
     position: relative;
-    bottom: 21rem;
+    margin-bottom: 70vh;
+    /*bottom: 26rem;*/
+    color: purple;
+    font-family: 'Poiret One', cursive;
+    font-size: 450%;
 }
+
+#menu-title {
+    font-family: 'Poiret One', cursive;
+    margin-top: 0.25em;
+    text-align: center;
+    color: purple;
+}
+
+#main-hero-subtitle {
+    position: relative;
+    bottom: 69vh;
+    /*bottom: 26rem;*/
+    color: purple;
+    font-family: 'Poiret One', cursive;
+    font-size: 250%;
+    font-style: italic;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #main-hero-title {
+        /*bottom: 26rem;*/
+        color: purple;
+        font-family: 'Poiret One', cursive;
+        font-size: 450%;
+    }
+
+    #main-hero-subtitle {
+        /*bottom: 26rem;*/
+        color: purple;
+        font-family: 'Poiret One', cursive;
+        font-size: 250%;
+        font-style: italic;
+    }
+
+  }
