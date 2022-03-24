@@ -27,7 +27,7 @@ suite("Placemark model tests", () => {
 
   test("delete all placemarks", async () => {
     let returnedPlacemarks = await db.placemarkStore.getAllPlacemarks();
-    assert.equal(returnedPlacemarks.length, 3);
+    assert.equal(returnedPlacemarks.length, 10);
     await db.placemarkStore.deleteAllPlacemarks();
     returnedPlacemarks = await db.placemarkStore.getAllPlacemarks();
     assert.equal(returnedPlacemarks.length, 0);
@@ -63,6 +63,7 @@ suite("Placemark model tests", () => {
   });
 
   test("get placemarks for region - success", async () => {
+    await db.placemarkStore.deleteAllPlacemarks()
     const placemark = await db.placemarkStore.addPlacemark(vineyard);
     let returnedPlacemarks = await db.placemarkStore.getPlacemarksByRegion(placemark.region);
     assert.equal(returnedPlacemarks.length, 1);
