@@ -27,6 +27,8 @@ html {
 
 #grape-list{
     list-style-type: '🍇';
+    list-style-position: inside;
+    text-align: center;
     font-size: 120%;
 }
 

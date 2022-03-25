@@ -8,23 +8,11 @@
     {{placemark.description}}
   </section>
 </section>
-<section>
-  <div class="columns">
+
+<section class="box">
+  <div class="columns is-vcentered">
     <div class="column is-four-fifths">
-      <div style="height: 50vh;" id="mapid"></div>
-      <script>
-        const mymap = L.map('mapid').setView([{{placemark.latitude}}, {{placemark.longitude}}], 17);
-        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib3dlbjQ1OSIsImEiOiJja3JzemJ4bDczYm80MnZydmJseW0yd2FlIn0.f_Bpu1iNoS1ic9H08jVqDw', {
-          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-          maxZoom: 18,
-          id: 'mapbox/satellite-v9',
-          tileSize: 512,
-          zoomOffset: -1,
-          accessToken: 'pk.eyJ1Ijoib3dlbjQ1OSIsImEiOiJja3JzemJ4bDczYm80MnZydmJseW0yd2FlIn0.f_Bpu1iNoS1ic9H08jVqDw'
-        }).addTo(mymap);
-        var marker = L.marker([{{placemark.latitude}}, {{placemark.longitude}}]).addTo(mymap);
-        marker.bindPopup("{{placemark.name}}");
-      </script>
+      {{> placemark-map}}
     </div>
     <div class="column is-one-fifth has-text-centered">
       <h3 class="title is-3">{{region.name}} Region</h3>
@@ -32,10 +20,10 @@
       <thead>
         <tr>
           <th>Best Vintages</th>
-         </tr>
+          </tr>
       </thead>
-       <tbody>
-         {{#each region.vintages}}
+        <tbody>
+          {{#each region.vintages}}
         <tr>
           <th>{{this}}</th>
         </tr>
@@ -43,21 +31,35 @@
       </tbody>
       </table>
     </div>
-    </div>
-  </section>
-  <div class="section">
-    <div class="column is-narrow"></div>
-    <h3 class="title is-3">Grape varieties of the {{region.name}} region</h3><hr>
-    <ul id="grape-list">
-      {{#each region.grapes}}
-      <li>{{this}}</li>
-      {{/each}}
-    </ul>
+  </div>
+</section>
+
+ <div class="section">
+  <div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth has-text-centered">
+      <h3 class="title is-3">Grape varieties of the {{region.name}} region</h3><hr>
+      <ul id="grape-list">
+        {{#each region.grapes}}
+        <li></br>{{this}}</li>
+        {{/each}}
+      </ul>
     </div>
   </div>
+ </div>
+
+ 
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter has-text-centered">
+    <div class="box">
+      <h3 class="title is-3">Mark your visit with a photo</h3><hr>
+      {{> playlist-image }}
+    </div>
   </div>
-  <div class="section">
+</div>
+
+<hr>
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter has-text-centered">
     <a class="button is-danger" id="delete" href="/placemark/deleteplacemark/{{placemark._id}}"> Delete Placemark </a> 
   </div>
-      
-
+</div>

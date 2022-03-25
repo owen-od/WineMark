@@ -1,0 +1,14 @@
+<div style="height: 50vh;" id="mapid"></div>
+<script>
+  const mymap = L.map('mapid').setView([{{placemark.latitude}}, {{placemark.longitude}}], 17);
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoib3dlbjQ1OSIsImEiOiJja3JzemJ4bDczYm80MnZydmJseW0yd2FlIn0.f_Bpu1iNoS1ic9H08jVqDw', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox/satellite-v9',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken: 'pk.eyJ1Ijoib3dlbjQ1OSIsImEiOiJja3JzemJ4bDczYm80MnZydmJseW0yd2FlIn0.f_Bpu1iNoS1ic9H08jVqDw'
+  }).addTo(mymap);
+  var marker = L.marker([{{placemark.latitude}}, {{placemark.longitude}}]).addTo(mymap);
+  marker.bindPopup("{{placemark.name}}");
+</script>
