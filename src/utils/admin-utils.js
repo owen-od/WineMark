@@ -36,7 +36,7 @@ export const adminUtils = {
     let mostPlacemarks = 0;
     for (let i = 0; i < users.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      let userPlacemarks = await db.placemarkStore.getUserPlacemarks(users[i]._id)
+      const userPlacemarks = await db.placemarkStore.getUserPlacemarks(users[i]._id)
       if (userPlacemarks.length > mostPlacemarks) {
         mostPlacemarks = userPlacemarks.length;
       }
