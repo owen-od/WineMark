@@ -60,4 +60,14 @@ export const placemarkJsonStore = {
     db.data.placemarks = [];
     await db.write();
   },
+
+  async editPlacemark(placemarkId, newPlacemark) {
+    const placemark = db.data.placemarks.find((place) => place._id === placemarkId);
+    placemark.name = newPlacemark.name;
+    placemark.latitude = newPlacemark.latitude;
+    placemark.longitude = newPlacemark.longitude;
+    placemark.region = newPlacemark.region; 
+    placemark.description =  newPlacemark.description;
+    await db.write();
+  },
 };

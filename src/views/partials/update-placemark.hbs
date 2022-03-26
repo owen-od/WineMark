@@ -1,0 +1,41 @@
+<div class="container">
+  <div class ="box">
+    <h3 class="title is-3 has-text-centered" id="edit-placemark-heading">Edit Placemark</h3>
+    <form action="/placemark/{{placemark._id}}/editplacemark" method="POST">
+      <div class="field is-horizontal">
+        <div class="field-body">
+          <div class="field">
+            <label class="label">Placemark Name</label> <input class="input" type="text" placeholder="Enter place name" name="name" value="{{placemark.name}}">
+          </div>
+          <div class="field">
+            <label class="label">Latitude</label> <input class="input" type="number" placeholder="Enter latitude" step="0.0000001" max="90" min="-90" name="latitude" value={{placemark.latitude}}>
+          </div>
+          <div class="field">
+            <label class="label">Longitude</label> <input class="input" type="number" placeholder="Enter Longitude" step="0.0000001" max="180" min="-180" name="longitude" value={{placemark.longitude}}>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Region</label>
+        <div class="control">
+          <div class="select">
+            <select name="region">
+              <option selected>{{placemark.region}}</option>
+              {{#each regions}}
+              <option>{{name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="label">Description</label><textarea class="textarea" name="description">{{placemark.description}}</textarea>
+        </div>
+      </div>
+      <div class="field">
+        <button class="button is-link">Edit Placemark</button>
+      </div>
+    </form>
+  </div>
+</div>

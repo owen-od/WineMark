@@ -50,4 +50,13 @@ export const placemarkMemStore = {
   async getUserPlaylists(userid) {
     return playlists.filter((playlist) => playlist.userid === userid);
   },
+
+  async editPlacemark(placemarkId, newPlacemark) {
+    const placemark = placemarks.find((place) => place._id === placemarkId);
+    placemark.name = newPlacemark.name;
+    placemark.latitude = newPlacemark.latitude;
+    placemark.longitude = newPlacemark.longitude;
+    placemark.region = newPlacemark.region; 
+    placemark.description =  newPlacemark.description;
+  },
 };

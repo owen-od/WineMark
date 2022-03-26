@@ -16,6 +16,7 @@ export const webRoutes = [
   { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
   { method: "GET", path: "/placemark/deleteplacemark/{id}", config: placemarkController.deletePlacemark },
   { method: "POST", path: "/placemark/{id}/uploadimage", config: placemarkController.uploadImage },
+  { method: "POST", path: "/placemark/{id}/editplacemark", config: placemarkController.editPlacemark },
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addplacemark", config: dashboardController.addPlacemark },
