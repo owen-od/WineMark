@@ -4,6 +4,10 @@ import { adminUtils } from "../utils/admin-utils.js";
 export const adminController = {
   index: {
     handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      if (loggedInUser.email !== "admin@winemark.com" || loggedInUser.password !== "verysecret" ) {
+        return h.view("unauthorised-view.hbs");
+      }
       const placemarks = await db.placemarkStore.getAllPlacemarks();
       const regions = await db.regionsStore.getAllRegions();
       const users = await db.userStore.getAllUsers();

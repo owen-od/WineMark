@@ -8,7 +8,7 @@ export const adminUtils = {
       // eslint-disable-next-line no-await-in-loop
       number += 1
     }
-    return number - 1 // -1 as we need to remove admin account, which must be present to see admin dashboard
+    return number;
   },
 
   async numberPlacemarks() {
@@ -18,7 +18,7 @@ export const adminUtils = {
       // eslint-disable-next-line no-await-in-loop
       number += 1
     }
-    return number
+    return number;
   },
 
   async numberRegions() {
@@ -28,7 +28,7 @@ export const adminUtils = {
       // eslint-disable-next-line no-await-in-loop
       number += 1
     }
-    return number
+    return number;
   },
 
   async mostUserPlacemarks() {
