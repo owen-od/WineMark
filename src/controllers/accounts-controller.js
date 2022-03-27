@@ -25,6 +25,11 @@ export const accountsController = {
     },
     handler: async function (request, h) {
       const user = request.payload;
+      if(await db.userStore.getUserByEmail(user.email)) {
+        let errorDetails = [];
+        errorDetails.push({message: "There is already a user with this email"});
+        return h.view("signup-view", {errors: errorDetails}).takeover().code(400);
+      };
       await db.userStore.addUser(user);
       return h.redirect("/");
     },
