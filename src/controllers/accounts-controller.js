@@ -1,5 +1,8 @@
+import bcrypt from "bcrypt";
 import { db } from "../models/db.js";
 import { UserCredentialsSpec, UserSpec } from "../models/joi-schemas.js";
+
+const saltRounds = 10;
 
 export const accountsController = {
   index: {
@@ -25,6 +28,7 @@ export const accountsController = {
     },
     handler: async function (request, h) {
       const user = request.payload;
+      user.password = await bcrypt.hash(user.password, saltRounds);
       if(await db.userStore.getUserByEmail(user.email)) {
         let errorDetails = [];
         errorDetails.push({message: "There is already a user with this email"});
@@ -52,9 +56,13 @@ export const accountsController = {
     handler: async function (request, h) {
       const { email, password } = request.payload;
       const user = await db.userStore.getUserByEmail(email);
-      if (!user || user.password !== password) {
+      if (!user) {
         return h.redirect("/");
-      } if (user.email === "admin@winemark.com" && user.password === "verysecret") {
+      }
+      const passwordsMatch = await bcrypt.compare(password, user.password);
+      if (!passwordsMatch) {
+        return h.redirect("/");
+      } if (user.email === "admin@winemark.com") {
         request.cookieAuth.set({ id: user._id });
         return h.redirect("/admin");
       } 

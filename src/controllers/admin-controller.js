@@ -5,7 +5,7 @@ export const adminController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      if (loggedInUser.email !== "admin@winemark.com" || loggedInUser.password !== "verysecret" ) {
+      if (loggedInUser.email !== "admin@winemark.com" ) {
         return h.view("unauthorised-view.hbs");
       }
       const placemarks = await db.placemarkStore.getAllPlacemarks();
