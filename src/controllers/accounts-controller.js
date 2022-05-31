@@ -70,6 +70,22 @@ export const accountsController = {
       return h.redirect("/dashboard");
     },
   },
+  oauth: {
+    auth: "github-oauth",
+    handler: async function (request, h) {
+      if (request.auth.isAuthenticated) {
+        const user = await db.userStore.getUserByEmail(request.auth.credentials.profile.email);
+        if(!user) {
+          const errorDetails = [];
+          errorDetails.push({message: "There is no user account with your email - please sign up"});
+          return h.view("login-view", {errors: errorDetails}).takeover().code(400);
+        };
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/dashboard");
+      }
+      return h.redirect("/");
+    },
+  },
   logout: {
     auth: false,
     handler: function (request, h) {

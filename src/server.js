@@ -8,6 +8,7 @@ import Joi from "joi";
 import dotenv from "dotenv";
 import HapiSwagger from "hapi-swagger";
 import jwt from "hapi-auth-jwt2";
+import Bell from "@hapi/bell";
 import { fileURLToPath } from "url";
 import { webRoutes } from "./web-routes.js";
 import { db } from "./models/db.js";
@@ -44,6 +45,7 @@ async function init() {
     port: process.env.PORT || 4000,
     routes: { cors: true },
   });
+
   await server.register([
     Inert,
     Vision,
@@ -52,9 +54,13 @@ async function init() {
       options: swaggerOptions,
     },
   ]);
+
   await server.register(Cookie);
   await server.register(jwt);
+  await server.register(Bell);
+
   server.validator(Joi);
+
   server.auth.strategy("session", "cookie", {
     cookie: {
       name: process.env.COOKIE_NAME,
@@ -64,12 +70,25 @@ async function init() {
     redirectTo: "/",
     validateFunc: accountsController.validate,
   });
+
   server.auth.strategy("jwt", "jwt", {
     key: process.env.cookie_password,
     validate: validate,
     verifyOptions: { algorithms: ["HS256"] }
   });
+
+  const bellAuthOptions = {
+    provider: "github",
+    password: "github-encryption-password-secure",
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    isSecure: false
+  };
+
+  server.auth.strategy("github-oauth", "bell", bellAuthOptions);
+
   server.auth.default("session");
+
   server.views({
     engines: {
       hbs: Handlebars,
@@ -81,6 +100,7 @@ async function init() {
     layout: true,
     isCached: false,
   });
+  
   db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);

@@ -11,6 +11,7 @@ export const webRoutes = [
   { method: "GET", path: "/logout", config: accountsController.logout },
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
+  { method: "GET", path: "/oauth", config: accountsController.oauth },
   { method: "GET", path: "/about", config: aboutController.index },
 
   { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
