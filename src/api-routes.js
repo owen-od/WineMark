@@ -14,6 +14,7 @@ export const apiRoutes = [
   { method: "GET", path: "/api/placemarks", config: placemarkApi.find },
   { method: "GET", path: "/api/placemarks/{id}", config: placemarkApi.findOne },
   { method: "DELETE", path: "/api/placemarks/{id}", config: placemarkApi.deleteOne },
+  { method: "POST", path: "/api/placemarks/{id}", config: placemarkApi.uploadImage },
 
   { method: "GET", path: "/api/regions", config: regionApi.find },
   { method: "GET", path: "/api/regions/{name}", config: regionApi.findOne },
@@ -21,5 +22,4 @@ export const apiRoutes = [
   { method: "POST", path: "/api/regions", config: regionApi.create },
   { method: "DELETE", path: "/api/regions", config: regionApi.deleteAll },
   { method: "DELETE", path: "/api/regions/{name}", config: regionApi.deleteOne },
-
 ];

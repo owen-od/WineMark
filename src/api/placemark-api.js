@@ -103,4 +103,30 @@ export const placemarkApi = {
     tags: ["api"],
     description: "Delete all placemarkApi",
   },
+
+  uploadImage: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function(request, h) {
+      try {
+        const check = request.payload;
+        const check2 = request.params;
+        const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+        placemark.img = request.payload.img;
+        const updatedPlacemark = db.placemarkStore.updatePlacemark(placemark);
+        if (updatedPlacemark) {
+          return h.response(updatedPlacemark).code(201);
+        }
+        return Boom.badImplementation("error updating placemark");
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+      },
+      tags: ["api"],
+      description: "Add or update placemark image",
+      notes: "Returns the newly updated placemark",
+      validate: { payload: PlacemarkSpec },
+      response: { schema: PlacemarkSpecPlus, failAction: validationError },
+    },
 };

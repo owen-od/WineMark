@@ -2,12 +2,12 @@ export const maggie = {
     firstName: "Maggie",
     lastName: "Simpson",
     email: "maggie@simpson.com",
-    password: "secret",
+    password: "$2a$10$rVJo36GolxlEhmtyfqvtx.jpvJrRXzoRjYxhHHaS6RlcB8LugnDta",
   };
 
 export const maggieCredentials = {
     email: "maggie@simpson.com",
-    password: "secret"
+    password: "$2a$10$rVJo36GolxlEhmtyfqvtx.jpvJrRXzoRjYxhHHaS6RlcB8LugnDta"
 };
 
 export const testUsers = [
@@ -15,19 +15,19 @@ export const testUsers = [
     firstName: "Homer",
     lastName: "Simpson",
     email: "homer@simpson.com",
-    password: "secret",
+    password: "$2a$10$rVJo36GolxlEhmtyfqvtx.jpvJrRXzoRjYxhHHaS6RlcB8LugnDta",
   },
   {
     firstName: "Marge",
     lastName: "Simpson",
     email: "marge@simpson.com",
-    password: "secret",
+    password: "$2a$10$rVJo36GolxlEhmtyfqvtx.jpvJrRXzoRjYxhHHaS6RlcB8LugnDta",
   },
   {
     firstName: "Bart",
     lastName: "Simpson",
     email: "bart@simpson.com",
-    password: "secret",
+    password: "$2a$10$rVJo36GolxlEhmtyfqvtx.jpvJrRXzoRjYxhHHaS6RlcB8LugnDta",
   },
 ];
 
@@ -52,7 +52,7 @@ export const testPlacemarks = [
     "latitude": 47.00781,
     "longitude": 4.79831,
     "region": "Burgundy",
-    "description": "Château de Pommard is a winery in Pommard, Burgundy, France. Established in 1726, the property is known for its two Châteaux, gardens, and its 20 hectare walled vineyard, Clos Marey-Monge. The Châteaux, the vineyard and the winemaking facilities are operated and owned by Michael Baum, who purchased the estate in 2014. The winery produces \"Clos\" wines - Pinot Noir produced from the fruit of Clos Marey-Monge and \"Family\" wines - Grand Cru, Premier Cru, Village and Bourgogne wines from Chardonnay and Pinot Noir appellations across the Côte de Nuits and the Côte de Beaune. In 2016, the estate tested biodynamic methods on 2.5 hectares of vines, and stated the intention of being entirely biodynamic for the 2019 vintage."
+    "description": "Château de Pommard is a winery in Pommard, Burgundy, France. Established in 1726, the property is known for its two Châteaux, gardens, and its 20 hectare walled vineyard, Clos Marey-Monge. The Châteaux, the vineyard and the winemaking facilities are operated and owned by Michael Baum, who purchased the estate in 2014. The winery produces 'Clos' wines - Pinot Noir produced from the fruit of Clos Marey-Monge and 'Family' wines - Grand Cru, Premier Cru, Village and Bourgogne wines from Chardonnay and Pinot Noir appellations across the Côte de Nuits and the Côte de Beaune. In 2016, the estate tested biodynamic methods on 2.5 hectares of vines, and stated the intention of being entirely biodynamic for the 2019 vintage."
   },
   {
     "name": "Domaine Weinbach",
@@ -151,4 +151,4 @@ export const testRegions = [
   }
 ];
 
-export const serviceUrl = "http://localhost:3000";
+export const serviceUrl = "http://localhost:4000";
