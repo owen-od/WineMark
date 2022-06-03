@@ -110,8 +110,6 @@ export const placemarkApi = {
     },
     handler: async function(request, h) {
       try {
-        const check = request.payload;
-        const check2 = request.params;
         const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
         placemark.img = request.payload.img;
         const updatedPlacemark = db.placemarkStore.updatePlacemark(placemark);
@@ -126,7 +124,36 @@ export const placemarkApi = {
       tags: ["api"],
       description: "Add or update placemark image",
       notes: "Returns the newly updated placemark",
-      validate: { payload: PlacemarkSpec },
-      response: { schema: PlacemarkSpecPlus, failAction: validationError },
     },
+
+  edit: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+        const updatedPlacemark = {
+          name: request.payload.name,
+          latitude: request.payload.latitude,
+          longitude: request.payload.longitude,
+          region: request.payload.region, 
+          description: request.payload.description,
+          image: request.payload.image,
+        };
+        const newPlacemark = await db.placemarkStore.editPlacemark(placemark._id, updatedPlacemark);
+        if (newPlacemark) {
+          return h.response(newPlacemark).code(201);
+        }
+        return Boom.badImplementation("error updating placemark");
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+    },
+    tags: ["api"],
+    description: "Update a placemark",
+    notes: "Returns the newly updated placemark",
+    // validate: { payload: PlacemarkSpec },
+    // response: { schema: Pla
+  },
 };
