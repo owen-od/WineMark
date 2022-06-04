@@ -45,6 +45,7 @@ export const placemarkController = {
         longitude: request.payload.longitude,
         region: request.payload.region, 
         description: request.payload.description,
+        img: [],
       };
       await db.placemarkStore.editPlacemark(placemark._id, newPlacemark);
       return h.redirect(`/placemark/${request.params.id}`);

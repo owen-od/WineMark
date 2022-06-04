@@ -28,7 +28,7 @@ export const PlacemarkSpec = Joi.object()
     longitude: Joi.number().min(-180).max(180).required().example(4.95541),
     region: Joi.string().valid("Alsace", "Bordeaux", "Burgundy", "Beaujolais", "Champagne", "Cotes du Rhône", "Loire Valley").required().example("Burgundy"),
     description: Joi.string().required().example("Domaine de la Romanée-Conti, often abbreviated to DRC, is an estate in Burgundy, France that produces white and red wine. It is widely considered among the world's greatest wine producers, and DRC bottles are among the world's most expensive. It takes its name from the domaine's most famous vineyard, Romanée-Conti."),
-    img: Joi.string().example("http://res.cloudinary.com/abcdefg00/image/upload/v1123456789/abjkxlyodmu0kdevkbde.jpg"),
+    img: Joi.array(),
     userid: IdSpec,
   }).label("Placemark");
 
