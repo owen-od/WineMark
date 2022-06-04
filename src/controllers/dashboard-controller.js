@@ -30,12 +30,15 @@ export const dashboardController = {
     },
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
+      const date = new Date();
+      const timestamp = date.toString();
       const newPlacemark = {
         name: request.payload.name,
         latitude: request.payload.latitude,
         longitude: request.payload.longitude,
         region: request.payload.region, 
         description: request.payload.description,
+        timestamp: timestamp,
         userid: loggedInUser._id,
       };
       await db.placemarkStore.addPlacemark(newPlacemark);

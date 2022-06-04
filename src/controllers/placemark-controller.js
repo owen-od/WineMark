@@ -39,12 +39,15 @@ export const placemarkController = {
     },
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+      const date = new Date();
+      const timestamp = date.toString();
       const newPlacemark = {
         name: request.payload.name,
         latitude: request.payload.latitude,
         longitude: request.payload.longitude,
         region: request.payload.region, 
         description: request.payload.description,
+        timestamp: timestamp,
         img: [],
       };
       await db.placemarkStore.editPlacemark(placemark._id, newPlacemark);
